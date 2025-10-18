@@ -181,6 +181,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="EDA.html">Análisis Exploratorio del Rendimiento Académico de Estudiantes Universitarios de Programas de Pregrado Presencial</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost.</a></li>
+
+
 </ul>
 
     </div>
@@ -376,6 +378,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost.</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">01. LIBRERÍAS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semilla-global">02. SEMILLA GLOBAL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">03. CARGA DE DATOS</a></li>
@@ -384,6 +387,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento-y-prueba">06. ENTRENAMIENTO Y PRUEBA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-pre-procesamiento">07. PIPELINE DE PRE-PROCESAMIENTO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost-clasificacion-multiclase">08. XGBoost (CLASIFICACIÓN MULTICLASE)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-completo">09. PIPELINE COMPLETO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-y-metrica">10. GRID Y MÉTRICA</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-hiperparametros">11. OPTIMIZACIÓN DE HIPERPARÁMETROS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempeno-del-modelo">12. DESEMPEÑO DEL MODELO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-errores-ordinales">13. DISTRIBUCIÓN DE ERRORES ORDINALES</a></li>
@@ -393,6 +400,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidades-calibracion">17. PROBABILIDADES / CALIBRACIÓN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-las-variables">18.IMPORTANCIA DE LAS VARIABLES</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -593,28 +603,19 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="n">tag_name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span>
 <span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">in</span> <span class="n">dispatcher</span><span class="p">:</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1255,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1253</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="c1"># load event buffer</span>
-<span class="ne">-&gt; </span><span class="mi">1255</span> <span class="n">data</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1257</span>     <span class="k">break</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1258,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span>         <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1258</span>     <span class="n">pullparser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1259</span> <span class="n">root</span> <span class="o">=</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">_close_and_return_root</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1260</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:926,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">924</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">925</span> <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">926</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">928</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_readbuffer</span> <span class="o">=</span> <span class="n">data</span>
-
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:1002,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1000</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_type</span> <span class="o">==</span> <span class="n">ZIP_DEFLATED</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_READ_SIZE</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1002</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1003</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">eof</span> <span class="ow">or</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span>                  <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">and</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span>                  <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1006</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1296,</span> in <span class="ni">XMLPullParser.feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span> <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1295</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1296</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1297</span>     <span class="k">except</span> <span class="ne">SyntaxError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1298</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_events_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -812,10 +813,15 @@ Tamaño X_train: (472332, 6), X_test: (118083, 6)
 </div>
 </div>
 <p>La configuración constituye el modelo base que servirá como punto de partida para posteriores fases de ajuste mediante validación cruzada y búsqueda de hiperparámetros (GridSearchCV). Su propósito es establecer una referencia inicial del rendimiento del algoritmo XGBoost con una configuración estándar, asegurando que las siguientes etapas de optimización se basen en una estructura correctamente definida y computacionalmente eficiente.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pipeline-completo">
+<h1>09. PIPELINE COMPLETO<a class="headerlink" href="#pipeline-completo" title="Link to this heading">#</a></h1>
+<p>En esta fase (o etapa) se construye el pipeline completo de modelado, combinando el preprocesamiento de datos y el entrenamiento del modelo XGBoost dentro de una misma estructura automatizada. De esta forma, cada vez que se entrena o se hacen predicciones, los datos pasan por todas las etapas necesarias sin intervención manual, garantizando coherencia y eficiencia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================</span>
-<span class="c1"># 9. PIPELINE COMPLETO</span>
+<span class="c1"># 9.1.Pipeline Completo</span>
 <span class="c1"># ==========================</span>
 <span class="n">xgb_model</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span>
     <span class="n">tree_method</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span>          <span class="c1"># ✅ usa histogramas (más rápido y liviano)</span>
@@ -834,10 +840,16 @@ Tamaño X_train: (472332, 6), X_test: (118083, 6)
 </div>
 </div>
 </div>
+<p>Primero, se define el modelo XGBClassifier, que utiliza el método tree_method=’hist’, una técnica que acelera el entrenamiento y reduce el consumo de memoria al trabajar con histogramas. El parámetro enable_categorical=False indica que el modelo solo recibirá variables numéricas, ya que las categóricas fueron convertidas previamente mediante OneHotEncoder. Además, se establece eval_metric=’mlogloss’ como métrica de evaluación para medir la precisión probabilística en clasificación, mientras que use_label_encoder=False evita el uso de un codificador obsoleto. Los parámetros random_state=42 y n_jobs=-1 aseguran reproducibilidad y máximo aprovechamiento de los recursos del sistema.</p>
+<p>Luego, se construye el pipeline con dos pasos: “pre” aplica el preprocesamiento completo (imputación, escalado y codificación) y “xgb” entrena el modelo XGBoost con los datos transformados. Esta integración simplifica el flujo de trabajo, mejora la reproducibilidad y facilita tareas como la validación cruzada o la optimización de hiperparámetros. En resumen, el pipeline permite ejecutar todo el proceso de manera ordenada, eficiente y completamente automatizada.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="grid-y-metrica">
+<h1>10. GRID Y MÉTRICA<a class="headerlink" href="#grid-y-metrica" title="Link to this heading">#</a></h1>
+<p>En esta fase se define los parámetros de ajuste y la métrica de evaluación personalizada para optimizar el modelo XGBoost. Su objetivo es buscar la mejor combinación de hiperparámetros que mejore el rendimiento del modelo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================</span>
-<span class="c1"># 10. GRID Y MÉTRICA</span>
+<span class="c1"># 10. Grid y Métrica</span>
 <span class="c1"># ==========================</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;xgb__learning_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
@@ -855,7 +867,15 @@ Tamaño X_train: (472332, 6), X_test: (118083, 6)
 </div>
 </div>
 </div>
-</section>
+<p>El diccionario param_grid establece los valores que se probarán durante la búsqueda. Cada clave corresponde a un parámetro del modelo XGBoost, identificado con el prefijo “xgb__” por estar dentro del pipeline. Los parámetros seleccionados son:</p>
+<ul class="simple">
+<li><p>learning_rate, que controla la velocidad de aprendizaje del modelo;</p></li>
+<li><p>max_depth, que define la profundidad máxima de los árboles y, por tanto, su complejidad;</p></li>
+<li><p>n_estimators, que indica el número de árboles a construir; y</p></li>
+<li><p>subsample, que controla la proporción de datos usada en cada iteración, ayudando a reducir el sobreajuste.</p></li>
+</ul>
+<p>Luego, se crea la función safe_kappa(), que calcula el índice Kappa de Cohen usando cohen_kappa_score() con ponderación cuadrática. Esta métrica mide el grado de acuerdo entre las predicciones del modelo y las etiquetas reales, penalizando más los errores grandes. La función usa np.nan_to_num() para reemplazar valores faltantes por cero, garantizando estabilidad durante la validación.</p>
+<p>Por último, la instrucción kappa_scorer = make_scorer(safe_kappa) convierte la función en una métrica compatible con scikit-learn. En resumen, este flujo configura tanto los parámetros del modelo como una métrica robusta y segura que evalúa su desempeño de forma más precisa que la simple exactitud.</p>
 <section id="optimizacion-de-hiperparametros">
 <h2>11. OPTIMIZACIÓN DE HIPERPARÁMETROS<a class="headerlink" href="#optimizacion-de-hiperparametros" title="Link to this heading">#</a></h2>
 <p>Para determinar la configuración óptima del modelo, se implementa un procedimiento de búsqueda en malla denominado “GridSearchCV”, en el que se utilizará el 80% del conjunto total de datos (472332 observaciones) destinados al entrenamiento.</p>
@@ -1345,6 +1365,7 @@ dtype: float32
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost.</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">01. LIBRERÍAS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semilla-global">02. SEMILLA GLOBAL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">03. CARGA DE DATOS</a></li>
@@ -1353,6 +1374,10 @@ dtype: float32
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento-y-prueba">06. ENTRENAMIENTO Y PRUEBA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-pre-procesamiento">07. PIPELINE DE PRE-PROCESAMIENTO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost-clasificacion-multiclase">08. XGBoost (CLASIFICACIÓN MULTICLASE)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-completo">09. PIPELINE COMPLETO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-y-metrica">10. GRID Y MÉTRICA</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-hiperparametros">11. OPTIMIZACIÓN DE HIPERPARÁMETROS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempeno-del-modelo">12. DESEMPEÑO DEL MODELO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-errores-ordinales">13. DISTRIBUCIÓN DE ERRORES ORDINALES</a></li>
@@ -1362,6 +1387,9 @@ dtype: float32
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidades-calibracion">17. PROBABILIDADES / CALIBRACIÓN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-de-las-variables">18.IMPORTANCIA DE LAS VARIABLES</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
