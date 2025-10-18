@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis Exploratorio del Rendimiento Académico de Estudiantes Universitarios de Programas de Pregrado Presencial &#8212; Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost.</title>
+    <title>Análisis Exploratorio del Rendimiento Académico de Estudiantes Universitarios de Programas de Pregrado Presencial &#8212; Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost.</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost." href="XGBClassifier.html" />
-    <link rel="prev" title="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost." href="intro.html" />
+    <link rel="prev" title="Análisis Exploratorio de Datos y Modelo de Machine Learning" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +153,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost. - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost. - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost. - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost. - Home"/>`);</script>
   
   
 </a></div>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost.
+                    Análisis Exploratorio de Datos y Modelo de Machine Learning
                 </a>
             </li>
         </ul>
@@ -384,7 +384,7 @@ document.write(`
 <p>Estudiantes:</p>
 <p>MARIA JOSÉ BERRIO CHASOY, Magister en Ciencias de la Tierra.
 CÉSAR GUILLERMO ANACHURY PACHECO, Magister en Estadística Aplicada.
-JOSÉ JAVIER CASTRO CERVANTES, Ingeniero Industrial.</p>
+JOSÉ JAVIER CASTRO CERVANTES, Magister en Economía.</p>
 <p>Introducción</p>
 <p>La deserción estudiantil y el rendimiento académico se han convertido en preocupaciones centrales para las instituciones de educación superior, dado que las tasas de deserción son ampliamente reconocidas como indicadores de la calidad educativa, con implicaciones directas en la reputación, la financiación y la sostenibilidad institucional (Gallego et al., 2021). Sin embargo, las definiciones y enfoques de medición varían: mientras que las perspectivas macro consideran únicamente a los estudiantes que abandonan el sistema sin obtener un título, las perspectivas micro incluyen también los cambios de programa o de institución como eventos de deserción, lo que genera tasas reportadas más altas (Realinho et al., 2022).</p>
 <p>Frente a esta problemática, se han enfatizado las intervenciones intensivas y continuas como estrategias clave para reducir la deserción, y la creciente disponibilidad de datos educativos ha impulsado el desarrollo de la Minería de Datos Educativos (MDE), un campo que utiliza modelos predictivos para comprender fenómenos como el rendimiento, la retención, la satisfacción, el logro y la deserción (Alyahyan &amp; Düştegör, 2020). En Colombia, este enfoque se complementa con el Sistema de Prevención y Análisis de la Deserción en Instituciones de Educación Superior (SPADIES), diseñado por el Centro de Estudios Económicos de la Universidad de los Andes, que permite monitorear el fenómeno, calcular el riesgo individual de cada estudiante y apoyar el diseño de estrategias de intervención diferenciadas (Pérez et al., 2018).</p>
@@ -398,7 +398,6 @@ JOSÉ JAVIER CASTRO CERVANTES, Ingeniero Industrial.</p>
 <p>Realizar un análisis exploratorio en función de la variable dependiente (𝑌), caracterizando su distribución y evaluando patrones, tendencias y posibles sesgos en los datos.</p>
 <p>Llevar a cabo un análisis estadístico de las variables numéricas con el fin de: verificar la normalidad de las distribuciones (Ho : Xi ∼ N(μ,σ2)), estimar correlaciones significativas entre variables cuantitativas (rPearson) y analizar asociaciones entre variables categóricas mediante pruebas de independencia (𝜒2)</p>
 <p>Desarrollar y evaluar un modelo de clasificación ordinal utilizando el algoritmo XGBoost, con el propósito de predecir la variable “Rendimiento” e identificar las variables predictoras con mayor peso estadístico en la explicación del desempeño académico de los estudiantes.</p>
-<p>Implementar un modelo de regresión supervisada basado en XGBoost para estimar la variable continua “Nota Final”, a partir de las variables socioacadémicas y de rendimiento, analizando la magnitud y dirección de la contribución de cada predictor en la estimación del resultado académico.</p>
 <p>Exploración de los Datos (-EDA-)</p>
 <ol class="arabic simple">
 <li><p>Transformación de los Datos</p></li>
@@ -567,19 +566,28 @@ JOSÉ JAVIER CASTRO CERVANTES, Ingeniero Industrial.</p>
 <span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="n">tag_name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span>
 <span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">in</span> <span class="n">dispatcher</span><span class="p">:</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1258,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1256</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1257</span>         <span class="k">break</span>
-<span class="ne">-&gt; </span><span class="mi">1258</span>     <span class="n">pullparser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1259</span> <span class="n">root</span> <span class="o">=</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">_close_and_return_root</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1260</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1255,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1253</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="c1"># load event buffer</span>
+<span class="ne">-&gt; </span><span class="mi">1255</span> <span class="n">data</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span>     <span class="k">break</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1296,</span> in <span class="ni">XMLPullParser.feed</span><span class="nt">(self, data)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1294</span> <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1295</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1296</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1297</span>     <span class="k">except</span> <span class="ne">SyntaxError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1298</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_events_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:926,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span> <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">926</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">928</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_readbuffer</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:1002,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1000</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_type</span> <span class="o">==</span> <span class="n">ZIP_DEFLATED</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_READ_SIZE</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1002</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1003</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">eof</span> <span class="ow">or</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span>                  <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">and</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span>                  <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1006</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2420,7 +2428,7 @@ Total de valores nulos en el dataset: 0
 <img alt="_images/bd6ce6e8bd8da0aa3d5ac80b2789326ae020441964d287b0c3e7dbcec63feffe.png" src="_images/bd6ce6e8bd8da0aa3d5ac80b2789326ae020441964d287b0c3e7dbcec63feffe.png" />
 </div>
 </div>
-<p>3.8. Pruaba de Independencia: Prueba Chi-cuadrado.</p>
+<p>3.8. Prueba de Independencia: Prueba Chi-cuadrado.</p>
 <p>El análisis estadístico realizado mediante la prueba Chi-cuadrado de independencia permite establecer si existe una relación significativa entre el Rendimiento (académico) de los estudiantes y las variables Programa (académico) y Asignatura. Los resultados muestran que, en todos los casos evaluados, el valor p fue prácticamente cero, lo que indica una fuerte evidencia para rechazar la hipótesis nula de independencia. En otras palabras, se confirma que sí existe asociación entre las variables analizadas y el Rendimiento (académico).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2554,7 +2562,7 @@ Total de valores nulos en el dataset: 0
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost.</p>
+        <p class="prev-next-title">Análisis Exploratorio de Datos y Modelo de Machine Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -2582,7 +2590,7 @@ Total de valores nulos en el dataset: 0
   <div class="footer-item">
     
 <p class="component-author">
-By Cesar G. Anachury, Maria J. Berrio & José Cortez
+By Cesar G. Anachury, Maria J. Berrio & José J. Castro
 </p>
 
   </div>

@@ -1,4 +1,4 @@
-# Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizado el algoritmo XGBoost.
+# Análisis Exploratorio de Datos y Modelo de Machine Learning
 
 ```{tableofcontents}
 ```
