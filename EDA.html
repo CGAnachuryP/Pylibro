@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,7 +303,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -319,6 +321,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos-eda">Exploración de los Datos (-EDA-)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -334,7 +345,8 @@ document.write(`
 <p>MARIA JOSÉ BERRIO CHASOY, Magister en Ciencias de la Tierra.
 CÉSAR GUILLERMO ANACHURY PACHECO, Magister en Estadística Aplicada.
 JOSÉ JAVIER CASTRO CERVANTES, Magister en Economía.</p>
-<p>Introducción</p>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
 <p>La deserción estudiantil y el bajo rendimiento académico constituyen problemáticas centrales en las instituciones de educación superior, debido a sus efectos sobre la calidad educativa, la reputación institucional y la sostenibilidad del sistema (Gallego et al., 2021). En Colombia, las tasas de deserción universitaria superan el promedio de los países de la OCDE, reflejando debilidades estructurales relacionadas con factores económicos, sociales, institucionales y pedagógicos (Ministerio de Educación Nacional – SPADIES, 2025). Entre las causas más relevantes de deserción se encuentra el bajo rendimiento académico, indicador que refleja la capacidad del estudiante para alcanzar los objetivos de aprendizaje y adaptarse a las exigencias del entorno educativo (Imig, 2020)</p>
 <p>Tradicionalmente, el rendimiento académico se ha evaluado mediante indicadores descriptivos como el promedio general acumulado (GPA). Sin embargo, la creciente disponibilidad de datos educativos y los avances en la ciencia de datos han impulsado la emergencia de la Minería de Datos Educativos (MDE). Este campo utiliza modelos predictivos avanzados para comprender y anticipar fenómenos clave como el rendimiento, la retención, la satisfacción y la deserción (Alyahyan &amp; Düştegör, 2020). En Colombia, esta necesidad se articula con iniciativas como el Sistema de Prevención y Análisis de la Deserción en Instituciones de Educación Superior (SPADIES), que facilita el monitoreo y el diseño de acciones diferenciadas (Pérez et al., 2018). Estas herramientas se enmarcan en la metodología KDD (Knowledge Discovery in Databases), que integra la recolección, transformación y análisis de datos para generar conocimiento útil en la toma de decisiones educativas (Rico Páez &amp; Sánchez Guzmán, 2018).</p>
 <p>Algoritmos como XGBoost (Extreme Gradient Boosting) se destacan en esta área, demostrando ser altamente eficaces para manejar grandes volúmenes de datos, capturar relaciones no lineales y realizar predicciones precisas en tareas de clasificación y regresión, lo que resulta fundamental para evaluar la importancia relativa de las variables académicas en el desempeño estudiantil.</p>
@@ -347,7 +359,9 @@ JOSÉ JAVIER CASTRO CERVANTES, Magister en Economía.</p>
 <p>Realizar un análisis exploratorio en función de la variable dependiente (𝑌), caracterizando su distribución y evaluando patrones, tendencias y posibles sesgos en los datos.</p>
 <p>Llevar a cabo un análisis estadístico de las variables numéricas con el fin de: verificar la normalidad de las distribuciones (Ho : Xi ∼ N(μ,σ2)), estimar correlaciones significativas entre variables cuantitativas (rPearson) y analizar asociaciones entre variables categóricas mediante pruebas de independencia (𝜒2)</p>
 <p>Desarrollar y evaluar un modelo de clasificación ordinal utilizando el algoritmo XGBoost, con el propósito de predecir la variable “Rendimiento” e identificar las variables predictoras con mayor peso estadístico en la explicación del desempeño académico de los estudiantes.</p>
-<p>Exploración de los Datos (-EDA-)</p>
+</section>
+<section id="exploracion-de-los-datos-eda">
+<h2>Exploración de los Datos (-EDA-)<a class="headerlink" href="#exploracion-de-los-datos-eda" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Transformación de los Datos</p></li>
 </ol>
@@ -503,40 +517,33 @@ JOSÉ JAVIER CASTRO CERVANTES, Magister en Economía.</p>
 <span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">if</span> <span class="n">max_row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="n">max_row</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">87</span>             <span class="k">break</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:156,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="n">PRINT_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;print_options&#39;</span><span class="p">,</span> <span class="n">PrintOptions</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="n">MARGINS_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;page_margins&#39;</span><span class="p">,</span> <span class="n">PageMargins</span><span class="p">),</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span> 
-<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="n">it</span> <span class="o">=</span> <span class="n">iterparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span> <span class="c1"># add a finaliser to close the source when this becomes possible</span>
-<span class="ne">--&gt; </span><span class="mi">156</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="n">tag_name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">in</span> <span class="n">dispatcher</span><span class="p">:</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:167,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span>     <span class="n">element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="k">elif</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="n">ROW_TAG</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">167</span>     <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_row</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="n">element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="k">yield</span> <span class="n">row</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1255,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1253</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="c1"># load event buffer</span>
-<span class="ne">-&gt; </span><span class="mi">1255</span> <span class="n">data</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1257</span>     <span class="k">break</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:303,</span> in <span class="ni">WorkSheetParser.parse_row</span><span class="nt">(self, row)</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="k">if</span> <span class="n">keys</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;spans&#39;</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="c1"># don&#39;t create dimension objects unless they have relevant information</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="bp">self</span><span class="o">.</span><span class="n">row_dimensions</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">)]</span> <span class="o">=</span> <span class="n">attrs</span>
+<span class="ne">--&gt; </span><span class="mi">303</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_cell</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">,</span> <span class="n">cells</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:926,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">924</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">925</span> <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">926</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">928</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_readbuffer</span> <span class="o">=</span> <span class="n">data</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:303,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="k">if</span> <span class="n">keys</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;spans&#39;</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="c1"># don&#39;t create dimension objects unless they have relevant information</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="bp">self</span><span class="o">.</span><span class="n">row_dimensions</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">)]</span> <span class="o">=</span> <span class="n">attrs</span>
+<span class="ne">--&gt; </span><span class="mi">303</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_cell</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">,</span> <span class="n">cells</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:1002,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1000</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_type</span> <span class="o">==</span> <span class="n">ZIP_DEFLATED</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_READ_SIZE</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1002</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1003</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">eof</span> <span class="ow">or</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span>                  <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">and</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span>                  <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1006</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:191,</span> in <span class="ni">WorkSheetParser.parse_cell</span><span class="nt">(self, element)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">def</span><span class="w"> </span><span class="nf">parse_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">data_type</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">191</span>     <span class="n">coordinate</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="n">style_id</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>     <span class="k">if</span> <span class="n">style_id</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2467,14 +2474,14 @@ Total de valores nulos en el dataset: 0
 <p>Los resultados preliminares evidencian que las Notas 1 y 2 presentan bajos promedios y alta dispersión; la Nota 3 concentra calificaciones altas y muestra la mayor correlación con la Nota Final (𝜌 = 0.5630); la Nota 4 se caracteriza por ausencia de registros significativos; mientras que la Nota Definitiva y la Nota Final reflejan una fuerte concentración en calificaciones altas y una asociación casi perfecta (𝜌 = 0.9890). La Nota de Habilitación, en contraste, es poco frecuente y se relaciona negativamente con la Nota Final.</p>
 <p>Finalmente, los análisis de asociación mediante Chi-cuadrado revelaron dependencias significativas entre el Rendimiento (académico) y variables como el Programa y, en mayor medida, las Asignaturas, lo que sugiere, en principio, que el tipo de materia/curso es el factor más influyente en el desempeño estudiantil.</p>
 <p>Referencias</p>
-<p>Alyahyan, E., &amp; Düştegör, D. (2020). Predicting academic success in higher education: literature review and best practices. International journal of educational technology in higher education, 17(1), 3.</p>
-<p>Gallego, M. G., Perez de los Cobos, A. P., &amp; Gallego, J. C. G. (2021). Identifying students at risk to academic dropout in higher education. Education Sciences, 11(8), 427.</p>
-<p>Laboratorio de Economía de la Educación (LEE) de la Pontificia Universidad Javeriana. (2023). Informe No. 74 Deserción en la educación superior en Colombia. Disponible en</p>
-<p>Pérez, B., Castellanos, C., &amp; Correal, D. (2018, May). Predicting student drop-out rates using data mining techniques: A case study. In IEEE Colombian Conference on Applications in Computational Intelligence (pp. 111-125). Cham: Springer International Publishing.</p>
-<p>Realinho, V., Machado, J., Baptista, L., &amp; Martins, M. V. (2022). Predicting student dropout and academic success. Data, 7(11), 146.</p>
-<p>Valencia-Arias, A., Chalela, S., Cadavid-Orrego, M., Gallegos, A., Benjumea-Arias, M., &amp; Rodríguez-Salazar, D. Y. (2023). University dropout model for developing countries: A Colombian context approach. Behavioral Sciences, 13(5), 382.</p>
-<p>Imig, P. G. (2020). Rendimiento académico: un recorrido conceptual que aproxima a una definición unificada para el ámbito superior/Academic performance: a conceptual journey that approximates a unified definition for the higher level. Revista de Educación, (20), 89-104.</p>
-<p>Rico Páez, A., &amp; Sánchez Guzmán, D. (2018). Diseño de un modelo para automatizar la predicción del rendimiento académico en estudiantes del IPN. RIDE. Revista Iberoamericana para la Investigación y el Desarrollo Educativo, 8(16), 246-266.</p>
+<ul class="simple">
+<li><p>Alyahyan, E., &amp; Düştegör, D. (2020). Predicting academic success in higher education: literature review and best practices. International journal of educational technology in higher education, 17(1), 3.</p></li>
+<li><p>Gallego, M. G., Perez de los Cobos, A. P., &amp; Gallego, J. C. G. (2021). Identifying students at risk to academic dropout in higher education. Education Sciences, 11(8), 427.</p></li>
+<li><p>Imig, P. G. (2020). Rendimiento académico: un recorrido conceptual que aproxima a una definición unificada para el ámbito superior/Academic performance: a conceptual journey that approximates a unified definition for the higher level. Revista de Educación, (20), 89-104.</p></li>
+<li><p>Pérez, B., Castellanos, C., &amp; Correal, D. (2018, May). Predicting student drop-out rates using data mining techniques: A case study. In IEEE Colombian Conference on Applications in Computational Intelligence (pp. 111-125). Cham: Springer International Publishing.</p></li>
+<li><p>Rico Páez, A., &amp; Sánchez Guzmán, D. (2018). Diseño de un modelo para automatizar la predicción del rendimiento académico en estudiantes del IPN. RIDE. Revista Iberoamericana para la Investigación y el Desarrollo Educativo, 8(16), 246-266.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2531,6 +2538,22 @@ Total de valores nulos en el dataset: 0
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos-eda">Exploración de los Datos (-EDA-)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
