@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -176,8 +176,6 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Análisis Exploratorio del Rendimiento Académico de Estudiantes Universitarios de Programas de Pregrado Presencial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="XGBClassifier.html">Modelado del Rendimiento Académicos de Estudiantes Universitarios de Programas de Pregrado Presencial utilizando el algoritmo XGBoost.</a></li>
-
-
 </ul>
 
     </div>
@@ -517,33 +515,54 @@ JOSÉ JAVIER CASTRO CERVANTES, Magister en Economía.</p>
 <span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">if</span> <span class="n">max_row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="n">max_row</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">87</span>             <span class="k">break</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:167,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>     <span class="n">element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="k">elif</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="n">ROW_TAG</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">167</span>     <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_row</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="n">element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="k">yield</span> <span class="n">row</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:156,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="n">PRINT_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;print_options&#39;</span><span class="p">,</span> <span class="n">PrintOptions</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="n">MARGINS_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;page_margins&#39;</span><span class="p">,</span> <span class="n">PageMargins</span><span class="p">),</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span> 
+<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="n">it</span> <span class="o">=</span> <span class="n">iterparse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span> <span class="c1"># add a finaliser to close the source when this becomes possible</span>
+<span class="ne">--&gt; </span><span class="mi">156</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="n">tag_name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">in</span> <span class="n">dispatcher</span><span class="p">:</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:303,</span> in <span class="ni">WorkSheetParser.parse_row</span><span class="nt">(self, row)</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="k">if</span> <span class="n">keys</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;spans&#39;</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="c1"># don&#39;t create dimension objects unless they have relevant information</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="bp">self</span><span class="o">.</span><span class="n">row_dimensions</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">)]</span> <span class="o">=</span> <span class="n">attrs</span>
-<span class="ne">--&gt; </span><span class="mi">303</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_cell</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">,</span> <span class="n">cells</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\xml\etree\ElementTree.py:1255,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">(source)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1253</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="c1"># load event buffer</span>
+<span class="ne">-&gt; </span><span class="mi">1255</span> <span class="n">data</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span>     <span class="k">break</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:303,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="k">if</span> <span class="n">keys</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;spans&#39;</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="c1"># don&#39;t create dimension objects unless they have relevant information</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="bp">self</span><span class="o">.</span><span class="n">row_dimensions</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">)]</span> <span class="o">=</span> <span class="n">attrs</span>
-<span class="ne">--&gt; </span><span class="mi">303</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_cell</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_counter</span><span class="p">,</span> <span class="n">cells</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:926,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span> <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">926</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">928</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_readbuffer</span> <span class="o">=</span> <span class="n">data</span>
 
-<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\site-packages\openpyxl\worksheet\_reader.py:191,</span> in <span class="ni">WorkSheetParser.parse_cell</span><span class="nt">(self, element)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">def</span><span class="w"> </span><span class="nf">parse_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">data_type</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">191</span>     <span class="n">coordinate</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="n">style_id</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>     <span class="k">if</span> <span class="n">style_id</span><span class="p">:</span>
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:994,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span>
+<span class="g g-Whitespace">    </span><span class="mi">993</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">994</span>         <span class="n">data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read2</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">995</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:1026,</span> in <span class="ni">ZipExtFile._read2</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_READ_SIZE</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fileobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span> <span class="o">-=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1028</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+
+<span class="nn">File C:\Users\Public\miniconda3\envs\ml_venv\lib\zipfile.py:746,</span> in <span class="ni">_SharedFile.read</span><span class="nt">(self, n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t read from the ZIP file while there &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>             <span class="s2">&quot;is an open writing handle on it. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>             <span class="s2">&quot;Close the writing handle before trying to read.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">746</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span> <span class="k">return</span> <span class="n">data</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
